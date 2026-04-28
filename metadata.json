@@ -1,0 +1,6 @@
+{
+  "name": "Credit Card Fraud Detection System",
+  "description": "An end-to-end simulation of a banking fraud detection system featuring a scoring API, real-time alerting, and an MLOps dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["Real-time Monitoring", "ML Scoring API", "Fraud Analytics"]
+}

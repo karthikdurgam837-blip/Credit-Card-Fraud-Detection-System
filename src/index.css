@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: "Cormorant Garamond", serif;
+
+  --color-warm-clay: #7c4e2e;
+  --color-soft-sage: #6b705c;
+  --color-terracotta: #cb997e;
+  --color-paper: #fefefb;
+  --color-earth: #433e37;
+}
+
+@layer base {
+  body {
+    @apply bg-stone-50 text-stone-900 font-sans antialiased selection:bg-terracotta/20;
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 30px -10px rgba(139, 94, 60, 0.05);
+}
+
+@utility organic-shadow {
+  box-shadow: 0 20px 40px -15px rgba(67, 62, 55, 0.08);
+}
+
+@utility clay-shadow {
+  box-shadow: 0 30px 60px -20px rgba(67, 62, 55, 0.15);
+}
+
+.hud-line {
+  position: relative;
+}
+
+.hud-line::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  width: 15px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.15;
+}
+
+.trust-gradient {
+  background: linear-gradient(90deg, #6b705c 0%, #cb997e 50%, #7c4e2e 100%);
+}
+
+.metric-card {
+  @apply bg-white p-6 rounded-[32px] border border-stone-200/60 shadow-sm hover:organic-shadow transition-all duration-500 ease-out;
+}
